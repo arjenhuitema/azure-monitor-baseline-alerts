@@ -242,7 +242,7 @@
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2022-09-01",
             "name": "[variables('deploymentNames').AMBAUamiResourceGroupDeploymentName]",
-            "subscriptionId": "[parameters('uamiParameters').ALZManagementSubscriptionId.value]",
+            "subscriptionId": "[string(parameters('uamiParameters').ALZManagementSubscriptionId.value)]",
             "location": "[deployment().location]",
             "dependsOn": [],
             "properties": {
@@ -253,10 +253,10 @@
                 },
                 "parameters": {
                     "rgName": {
-                        "value": "[parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupName.value]"
+                        "value": "[string(parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupName.value)]"
                     },
                     "rgLocation": {
-                        "value": "[parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupLocation.value]"
+                        "value": "[string(parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupLocation.value)]"
                     },
                     "rgTags": {
                         "value": "[parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupTags]"
