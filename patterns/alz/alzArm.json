@@ -188,7 +188,6 @@
         "policyAssignmentParametersServiceHealth": "[union(parameters('policyAssignmentParametersCommon'), parameters('policyAssignmentParametersServiceHealth'), parameters('policyAssignmentParametersNotificationAssets'))]",
         "policyAssignmentParametersNotificationAssets": "[union(parameters('policyAssignmentParametersCommon'), parameters('policyAssignmentParametersNotificationAssets'))]",
         "policyAssignmentParametersHybridVM": "[union(parameters('policyAssignmentParametersCommon'), parameters('policyAssignmentParametersHybridVM'), parameters('uamiParameters'))]",
-
         // Declaring all required deployment uri's used for deployments of composite ARM templates for ESLZ
         "deploymentUris": {
             "policyDefinitionsAMBA": "[uri(deployment().properties.templateLink.uri, 'policyDefinitions/policies.json')]",
@@ -202,7 +201,6 @@
             "AMBAUserAssignedManagedIdentity": "[uri(deployment().properties.templateLink.uri, 'templates/userAssignedManagedIdentity.json')]",
             "AMBAHybridVMInitiative": "[uri(deployment().properties.templateLink.uri, 'policyAssignments/DINE-HybridVMAssignment.json')]"
         },
-
         // Declaring deterministic deployment names
         "deploymentSuffix": "[concat('-', deployment().location, '-', guid(parameters('enterpriseScaleCompanyPrefix'), parameters('currentDateTimeUtcNow')))]",
         "deploymentNames": {
@@ -233,7 +231,10 @@
         "cuaidLandingZone": "7bcfc615-be78-43da-b81d-98959a9465a5",
         "cuaidServiceHealth": "860d2afd-b71e-452f-9d3a-e56196cba570",
         "cuaidNotificationAssets": "eabaaf0b-eed4-48a9-9f91-4f7e431ba807",
-        "cuaidHybridVM": "b5c25c0c-dfbf-4414-bedb-f48ab00d0f9e"
+        "cuaidHybridVM": "b5c25c0c-dfbf-4414-bedb-f48ab00d0f9e",
+        "managementSubscriptionId": "[string(parameters('uamiParameters').ALZManagementSubscriptionId.value)]",
+        "resourceGroupName": "[string(parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupName.value)]",
+        "resourceGroupLocation": "[string(parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupLocation.value)]"
     },
     "resources": [
         {
@@ -242,7 +243,7 @@
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2022-09-01",
             "name": "[variables('deploymentNames').AMBAUamiResourceGroupDeploymentName]",
-            "subscriptionId": "[string(parameters('uamiParameters').ALZManagementSubscriptionId.value)]",
+            "subscriptionId": "[variables('managementSubscriptionId')]",
             "location": "[deployment().location]",
             "dependsOn": [],
             "properties": {
@@ -253,10 +254,10 @@
                 },
                 "parameters": {
                     "rgName": {
-                        "value": "[string(parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupName.value)]"
+                        "value": "[variables('resourceGroupName')]"
                     },
                     "rgLocation": {
-                        "value": "[string(parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupLocation.value)]"
+                        "value": "[variables('resourceGroupLocation')]"
                     },
                     "rgTags": {
                         "value": "[parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupTags]"
