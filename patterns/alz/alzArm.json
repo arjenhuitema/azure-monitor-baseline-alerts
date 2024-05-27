@@ -258,9 +258,6 @@
                     },
                     "rgLocation": {
                         "value": "[variables('resourceGroupLocation')]"
-                    },
-                    "rgTags": {
-                        "value": "[parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupTags]"
                     }
                 }
             }
