@@ -238,7 +238,7 @@
     "resources": [
         {
             // Creating resource group in the Management subscription.
-            "condition": "[empty(string(parameters('uamiParameters').BYOUserAssignedManagedIdentityResourceId.value))]",
+            //"condition": "[empty(string(parameters('uamiParameters').BYOUserAssignedManagedIdentityResourceId.value))]",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2022-09-01",
             "name": "[variables('deploymentNames').AMBAUamiResourceGroupDeploymentName]",
