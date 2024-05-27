@@ -126,6 +126,45 @@
                 "description": "Assign HybridVM initiative"
             }
         },
+        "bringYourOwnUserAssignedManagedIdentity": {
+            "type": "string",
+            "defaultValue": "No",
+            "allowedValues": [
+                "Yes",
+                "No"
+            ],
+            "metadata": {
+                "description": "Specify if you want to bring your own user assigned managed identity for monitoring purpose."
+            }
+
+        },
+        "bringYourOwnUserAssignedManagedIdentityResourceId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Specify the resource id of the user assigned managed identity if you want to bring your own user assigned managed identity for monitoring purpose."
+            }
+        },
+        "userAssignedManagedIdentityName": {
+            "type": "string",
+            "defaultValue": "id-amba-prod-001",
+            "metadata": {
+                "description": "Specify the name of the user assigned managed identity for monitoring purpose."
+            }
+        },
+        "userAssignedManagedIdentityResourceGroupName": {
+            "type": "string",
+            "defaultValue": "rg-amba-prod-001",
+            "metadata": {
+                "description": "Specify the name of the resource group where the user assigned managed identity will be created."
+            }
+        },
+        "managementSubscriptionId": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the subscription id where the user assigned managed identity will be created."
+            }
+        },
         "uamiParameters": {
             "type": "object",
             "defaultValue": {}
@@ -231,10 +270,7 @@
         "cuaidLandingZone": "7bcfc615-be78-43da-b81d-98959a9465a5",
         "cuaidServiceHealth": "860d2afd-b71e-452f-9d3a-e56196cba570",
         "cuaidNotificationAssets": "eabaaf0b-eed4-48a9-9f91-4f7e431ba807",
-        "cuaidHybridVM": "b5c25c0c-dfbf-4414-bedb-f48ab00d0f9e",
-        "managementSubscriptionId": "[string(parameters('uamiParameters').ALZManagementSubscriptionId.value)]",
-        "resourceGroupName": "[string(parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupName.value)]",
-        "resourceGroupLocation": "[string(parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupLocation.value)]"
+        "cuaidHybridVM": "b5c25c0c-dfbf-4414-bedb-f48ab00d0f9e"
     },
     "resources": [
         {
@@ -243,7 +279,7 @@
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2022-09-01",
             "name": "[variables('deploymentNames').AMBAUamiResourceGroupDeploymentName]",
-            "subscriptionId": "[variables('managementSubscriptionId')]",
+            "subscriptionId": "[parameters('managementSubscriptionId')]",
             "location": "[deployment().location]",
             "dependsOn": [],
             "properties": {
@@ -254,11 +290,14 @@
                 },
                 "parameters": {
                     "rgName": {
-                        "value": "[variables('resourceGroupName')]"
+                        "value": "[parameters('userAssignedManagedIdentityResourceGroupName')]"
                     },
                     "rgLocation": {
-                        "value": "[variables('resourceGroupLocation')]"
-                    }
+                        "value": "[parameters('userAssignedManagedIdentityName')]"
+                    }//,
+                    //"rgTags": {
+                    //    "value": "[parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupTags]"
+                    //}
                 }
             }
         },
