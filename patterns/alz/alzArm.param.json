@@ -50,7 +50,7 @@
           "value": "id-amba-prod-001"
         },
         "ALZManagementSubscriptionId": {
-          "value": ""
+          "value": "98a00c26-64b8-4107-a741-e282f3ba22b3"
         },
         "BYOUserAssignedManagedIdentityResourceId": {
           "value": ""
@@ -68,7 +68,7 @@
           }
         },
         "ALZMonitorResourceGroupLocation": {
-          "value": "eastus"
+          "value": "northeurope"
         }
       }
     },
