@@ -293,7 +293,7 @@
                         "value": "[parameters('userAssignedManagedIdentityResourceGroupName')]"
                     },
                     "rgLocation": {
-                        "value": "[parameters('userAssignedManagedIdentityName')]"
+                        "value": "[deployment().location]"
                     }//,
                     //"rgTags": {
                     //    "value": "[parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupTags]"
