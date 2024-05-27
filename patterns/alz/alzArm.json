@@ -240,7 +240,7 @@
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2022-09-01",
             "name": "[variables('deploymentNames').AMBAUamiResourceGroupDeploymentName]",
-            "subscriptionId": "[string(parameters('uamiParameters').ALZManagementSubscriptionId.Value)]",
+            "subscriptionId": "98a00c26-64b8-4107-a741-e282f3ba22b3",
             "location": "[deployment().location]",
             "dependsOn": [],
             "properties": {
@@ -251,10 +251,10 @@
                 },
                 "parameters": {
                     "rgName": {
-                        "value": "[string(parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupName.Value)]"
+                        "value": "rg-hardcoded-amba-uami"
                     },
                     "rgLocation": {
-                        "value": "[string(parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupLocation.Value)]"
+                        "value": "northeurope"
                     },
                     "rgTags": {
                         "value": "[parameters('policyAssignmentParametersCommon').ALZMonitorResourceGroupTags]"
