@@ -410,7 +410,7 @@
                             "properties": {
                                 "principalType": "ServicePrincipal",
                                 "roleDefinitionId": "[tenantResourceId('Microsoft.Authorization/roleDefinitions', '43d0d8ad-25c7-4714-9337-8ba259a9fe05')]", // Monitoring Reader
-                                "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', string(parameters('userAssignedManagedIdentityName'))),'2023-01-31').principalId]",
+                                "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', string(parameters('userAssignedManagedIdentityName'))),'2018-11-30').principalId]",
                                 "description": "_deployed_by_amba"
                             }
                         }
