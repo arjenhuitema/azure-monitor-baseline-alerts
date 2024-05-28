@@ -25,7 +25,7 @@
                 "description": "Provide the name of the Management Group that will be used to host the platform resources."
             }
         },
-        "identityManagementGroup": {
+        "IdentityManagementGroup": {
             "type": "string",
             "metadata": {
                 "description": "Provide the name of the Management Group that will be used to host the identity resources."
@@ -43,7 +43,7 @@
                 "description": "Provide the name of the Management Group that will be used to host the connectivity resources."
             }
         },
-        "landingZoneManagementGroup": {
+        "LandingZoneManagementGroup": {
             "type": "string",
             "metadata": {
                 "description": "Provide the name of the Management Group that will be used to host the landing zone resources."
