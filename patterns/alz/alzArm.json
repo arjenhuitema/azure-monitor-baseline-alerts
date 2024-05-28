@@ -181,6 +181,66 @@
                 "description": "Provide the tags for the resource group where the user assigned managed identity will be created."
             }
         },
+        "ALZMonitorActionGroupEmail": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the email address for the action group used for monitoring."
+            }
+        },
+        "ALZLogicappResourceId": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the resource id of the logic app used for monitoring."
+            }
+        },
+        "ALZLogicappCallbackUrl": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the callback url of the logic app used for monitoring."
+            }
+        },
+        "ALZArmRoleId": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the role id used for monitoring."
+            }
+        },
+        "ALZEventHubResourceId": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the resource id of the event hub used for monitoring."
+            }
+        },
+        "ALZWebhookServiceUri": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the service uri of the webhook used for monitoring."
+            }
+        },
+        "ALZFunctionResourceId": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the resource id of the function used for monitoring."
+            }
+        },
+        "ALZFunctionTriggerUrl": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the trigger url of the function used for monitoring."
+            }
+        },
+        "BYOActionGroup": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the action group used for monitoring."
+            }
+        },
+        "BYOAlertProcessingRule": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the alert processing rule used for monitoring."
+            }
+        },
         "delayCount": {
             "type": "int",
             "defaultValue": 1,
@@ -196,10 +256,6 @@
             "metadata": {
                 "description": "The current date and time using the utcNow function. Used for deployment name uniqueness"
             }
-        },
-        "policyAssignmentParametersNotificationAssets": {
-            "type": "object",
-            "defaultValue": {}
         },
         "policyAssignmentParametersConnectivity": {
             "type": "object",
@@ -249,13 +305,45 @@
                 "value": "[parameters('resourceGroupLocation')]"
             }
         },
+        "notificationAssetParameters": {
+            "ALZMonitorActionGroupEmail": {
+                "value": "[parameters('ALZMonitorActionGroupEmail')]"
+            },
+            "ALZLogicappResourceId": {
+                "value": "[parameters('ALZLogicappResourceId')]"
+            },
+            "ALZLogicappCallbackUrl": {
+                "value": "[parameters('ALZLogicappCallbackUrl')]"
+            },
+            "ALZArmRoleId": {
+                "value": "[parameters('ALZArmRoleId')]"
+            },
+            "ALZEventHubResourceId": {
+                "value": "[parameters('ALZEventHubResourceId')]"
+            },
+            "ALZWebhookServiceUri": {
+                "value": "[parameters('ALZWebhookServiceUri')]"
+            },
+            "ALZFunctionResourceId": {
+                "value": "[parameters('ALZFunctionResourceId')]"
+            },
+            "ALZFunctionTriggerUrl": {
+                "value": "[parameters('ALZFunctionTriggerUrl')]"
+            },
+            "BYOActionGroup": {
+                "value": "[parameters('BYOActionGroup')]"
+            },
+            "BYOAlertProcessingRule": {
+                "value": "[parameters('BYOAlertProcessingRule')]"
+            }
+        },
         // Declaring the policy assignment parameters that will be used for all policy assignments
         "policyAssignmentParametersConnectivity": "[union(variables('policyAssignmentParametersCommon'), parameters('policyAssignmentParametersConnectivity'))]",
         "policyAssignmentParametersIdentity": "[union(variables('policyAssignmentParametersCommon'), parameters('policyAssignmentParametersIdentity'))]",
         "policyAssignmentParametersLandingZone": "[union(variables('policyAssignmentParametersCommon'), parameters('policyAssignmentParametersLandingZone'))]",
         "policyAssignmentParametersManagement": "[union(variables('policyAssignmentParametersCommon'), parameters('policyAssignmentParametersManagement'))]",
-        "policyAssignmentParametersServiceHealth": "[union(variables('policyAssignmentParametersCommon'), parameters('policyAssignmentParametersServiceHealth'), parameters('policyAssignmentParametersNotificationAssets'))]",
-        "policyAssignmentParametersNotificationAssets": "[union(variables('policyAssignmentParametersCommon'), parameters('policyAssignmentParametersNotificationAssets'))]",
+        "policyAssignmentParametersServiceHealth": "[union(variables('policyAssignmentParametersCommon'), parameters('policyAssignmentParametersServiceHealth'), variables('notificationAssetParameters'))]",
+        "policyAssignmentParametersNotificationAssets": "[union(variables('policyAssignmentParametersCommon'), variables('notificationAssetParameters'))]",
         "policyAssignmentParametersHybridVM": "[union(variables('policyAssignmentParametersCommon'), parameters('policyAssignmentParametersHybridVM'), variables('uamiParameters'))]",
         // Declaring all required deployment uri's used for deployments of composite ARM templates for ESLZ
         "deploymentUris": {
@@ -410,7 +498,7 @@
                             "properties": {
                                 "principalType": "ServicePrincipal",
                                 "roleDefinitionId": "[tenantResourceId('Microsoft.Authorization/roleDefinitions', '43d0d8ad-25c7-4714-9337-8ba259a9fe05')]", // Monitoring Reader
-                                "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', string(parameters('userAssignedManagedIdentityName')))).principalId]",
+                                "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedManagedIdentityName')),'2023-01-31').principalId]",
                                 "description": "_deployed_by_amba"
                             }
                         }
