@@ -507,7 +507,7 @@
                             "properties": {
                                 "principalType": "ServicePrincipal",
                                 "roleDefinitionId": "[tenantResourceId('Microsoft.Authorization/roleDefinitions', '43d0d8ad-25c7-4714-9337-8ba259a9fe05')]", // Monitoring Reader
-                                "principalId": "[reference(resourceId(parameters('managementSubscriptionId'), parameters('resourceGroupName'), 'Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedManagedIdentityName')),'2023-01-31','Full').principalId]",
+                                "principalId": "[reference(resourceId(parameters('managementSubscriptionId'), parameters('resourceGroupName'), 'Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedManagedIdentityName')),'2023-01-31','Full').properties.principalId]",
                                 //"principalId": "[toLower(reference(concat('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedManagedIdentityName')), '2019-09-01', 'Full').identity.principalId)]",
                                 //"principalId": "[reference(concat('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedManagedIdentityName')).identity.principalId]",
                                 "description": "_deployed_by_amba"
