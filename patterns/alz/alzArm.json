@@ -158,21 +158,21 @@
                 "description": "Provide the subscription id where the user assigned managed identity will be created."
             }
         },
-        "resourceGroupName": {
+        "ALZMonitorResourceGroupName": {
             "type": "string",
             "defaultValue": "rg-amba-monitoring-001",
             "metadata": {
                 "description": "Provide the name of the resource group where the user assigned managed identity will be created."
             }
         },
-        "resourceGroupLocation": {
+        "ALZMonitorResourceGroupLocation": {
             "type": "string",
             "defaultValue": "northeurope",
             "metadata": {
                 "description": "Provide the location of the resource group where the user assigned managed identity will be created."
             }
         },
-        "resourceGroupTags": {
+        "ALZMonitorResourceGroupTags": {
             "type": "object",
             "defaultValue": {
                 "Project": "amba-monitoring"
@@ -296,13 +296,13 @@
         },
         "policyAssignmentParametersCommon": {
             "ALZMonitorResourceGroupName": {
-                "value": "[parameters('resourceGroupName')]"
+                "value": "[parameters('ALZMonitorResourceGroupName')]"
             },
             "ALZMonitorResourceGroupTags": {
-                "value": "[parameters('resourceGroupTags')]"
+                "value": "[parameters('ALZMonitorResourceGroupTags')]"
             },
             "ALZMonitorResourceGroupLocation": {
-                "value": "[parameters('resourceGroupLocation')]"
+                "value": "[parameters('ALZMonitorResourceGroupLocation')]"
             }
         },
         "notificationAssetParameters": {
@@ -408,13 +408,13 @@
                 },
                 "parameters": {
                     "rgName": {
-                        "value": "[parameters('resourceGroupName')]"
+                        "value": "[parameters('ALZMonitorResourceGroupName')]"
                     },
                     "rgLocation": {
-                        "value": "[parameters('resourceGroupLocation')]"
+                        "value": "[parameters('ALZMonitorResourceGroupLocation')]"
                     },
                     "rgTags": {
-                        "value": "[parameters('resourceGroupTags')]"
+                        "value": "[parameters('ALZMonitorResourceGroupTags')]"
                     }
                 }
             }
@@ -441,10 +441,10 @@
                         "value": "[parameters('userAssignedManagedIdentityName')]"
                     },
                     "uamiLocation": {
-                        "value": "[parameters('resourceGroupLocation')]"
+                        "value": "[parameters('ALZMonitorResourceGroupLocation')]"
                     },
                     "uamiResourceGroupName": {
-                        "value": "[parameters('resourceGroupName')]"
+                        "value": "[parameters('ALZMonitorResourceGroupName')]"
                     }
                 }
             }
@@ -471,8 +471,8 @@
                     "managementSubscriptionId": {
                         "value": "[parameters('managementSubscriptionId')]"
                     },
-                    "resourceGroupName": {
-                        "value": "[parameters('resourceGroupName')]"
+                    "ALZMonitorResourceGroupName": {
+                        "value": "[parameters('ALZMonitorResourceGroupName')]"
                     }
                 },
                 "template": {
@@ -491,7 +491,7 @@
                                 "description": "The subscription id where the user assigned managed identity will be created."
                             }
                         },
-                        "resourceGroupName": {
+                        "ALZMonitorResourceGroupName": {
                             "type": "string",
                             "metadata": {
                                 "description": "The name of the resource group where the user assigned managed identity will be created."
@@ -507,7 +507,7 @@
                             "properties": {
                                 "principalType": "ServicePrincipal",
                                 "roleDefinitionId": "[tenantResourceId('Microsoft.Authorization/roleDefinitions', '43d0d8ad-25c7-4714-9337-8ba259a9fe05')]", // Monitoring Reader
-                                "principalId": "[reference(resourceId(parameters('managementSubscriptionId'), parameters('resourceGroupName'), 'Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedManagedIdentityName')), '2023-01-31').principalId]",
+                                "principalId": "[reference(resourceId(parameters('managementSubscriptionId'), parameters('ALZMonitorResourceGroupName'), 'Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedManagedIdentityName')), '2023-01-31').principalId]",
                                 "description": "_deployed_by_amba"
                             }
                         }
