@@ -45,7 +45,7 @@
           "PT12H",
           "P1D"
         ],
-        "defaultValue": "PT5M"
+        "defaultValue": "PT15M"
       },
       "evaluationFrequency": {
         "type": "String",
