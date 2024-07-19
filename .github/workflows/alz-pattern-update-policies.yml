@@ -38,11 +38,11 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       (
-        github.event.pull_request.head.repo.full_name == 'Azure/azure-monitor-baseline-alerts'
+        github.event.pull_request.head.repo.full_name == 'arjenhuitema/azure-monitor-baseline-alerts'
       )
       ||
       (
-        github.event.pull_request.head.repo.full_name != 'Azure/azure-monitor-baseline-alerts'
+        github.event.pull_request.head.repo.full_name != 'arjenhuitema/azure-monitor-baseline-alerts'
         &&
         contains(github.event.pull_request.labels.*.name, 'PR: Safe to test :test_tube:')
       )
