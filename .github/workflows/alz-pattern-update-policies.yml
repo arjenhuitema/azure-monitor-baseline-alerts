@@ -110,7 +110,7 @@ jobs:
         run: bicep build ./patterns/alz/templates/policies-Web.bicep --outfile ./patterns/alz/policyDefinitions/policies-Web.json
 
       - name: Update policy set definitions
-        run: bicep build ./patterns/alz/templates/policySets.bicep --outfile ./patterns/alz/policyDefinitions/policySets.json                              
+        run: bicep build ./patterns/alz/templates/policySets.bicep --outfile ./patterns/alz/policyDefinitions/policySets.json
 
       - name: Check git status
         run: |
