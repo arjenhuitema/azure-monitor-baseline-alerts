@@ -120,11 +120,11 @@ jobs:
       - name: Stage changes
         run: |
           echo "==> Stage changes..."
-          mapfile -t STATUS_LOG < <(git status --short | grep eslzArm/)
+          mapfile -t STATUS_LOG < <(git status --short | grep patterns/alz)
           if [ ${#STATUS_LOG[@]} -gt 0 ]; then
               echo "Found changes to the following files:"
               printf "%s\n" "${STATUS_LOG[@]}"
-              git add --all ./eslzArm
+              git add --all ./patterns/alz
           else
               echo "No changes to add."
           fi
