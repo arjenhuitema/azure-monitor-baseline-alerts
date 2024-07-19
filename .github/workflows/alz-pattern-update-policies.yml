@@ -38,11 +38,11 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       (
-        github.event.pull_request.head.repo.full_name == 'Azure/azure-monitor-baseline-alerts'
+        github.event.pull_request.head.repo.full_name == 'arjenhuitema/azure-monitor-baseline-alerts'
       )
       ||
       (
-        github.event.pull_request.head.repo.full_name != 'Azure/azure-monitor-baseline-alerts'
+        github.event.pull_request.head.repo.full_name != 'arjenhuitema/azure-monitor-baseline-alerts'
         &&
         contains(github.event.pull_request.labels.*.name, 'PR: Safe to test :test_tube:')
       )
@@ -110,7 +110,7 @@ jobs:
         run: bicep build ./patterns/alz/templates/policies-Web.bicep --outfile ./patterns/alz/policyDefinitions/policies-Web.json
 
       - name: Update policy set definitions
-        run: bicep build ./patterns/alz/templates/policySets.bicep --outfile ./patterns/alz/policyDefinitions/policySets.json                            
+        run: bicep build ./patterns/alz/templates/policySets.bicep --outfile ./patterns/alz/policyDefinitions/policySets.json
 
       - name: Check git status
         run: |
