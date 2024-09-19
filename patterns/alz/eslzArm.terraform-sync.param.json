@@ -5,6 +5,21 @@
     "enterpriseScaleCompanyPrefix": {
       "value": "defaults"
     },
+    "platformManagementGroup": {
+      "value": "defaults-platform"
+    },
+    "IdentityManagementGroup": {
+      "value": "defaults-identity"
+    },
+    "managementManagementGroup": {
+      "value": "defaults-management"
+    },
+    "connectivityManagementGroup": {
+      "value": "defaults-connectivity"
+    },
+    "LandingZoneManagementGroup": {
+      "value": "defaults-landingzones"
+    },
     "enableAMBAConnectivity": {
       "value": "Yes"
     },
