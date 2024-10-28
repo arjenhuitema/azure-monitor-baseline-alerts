@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.30.23.60470",
-      "templateHash": "13241637439837166926"
+      "templateHash": "6009367551068036179"
     }
   },
   "parameters": {
@@ -127,7 +127,7 @@
         "displayName": "Deploy Azure Monitor Baseline Alerts for Web",
         "description": "This initiative deploys Azure Monitor Baseline Alerts to monitor Web Services such as App Services.",
         "metadata": {
-          "version": "1.0.0",
+          "version": "1.1.0",
           "category": "Monitoring",
           "source": "https://github.com/Azure/azure-monitor-baseline-alerts/",
           "alzCloudEnvironments": [
