@@ -4,8 +4,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.29.47.4906",
-      "templateHash": "6976424535633017796"
+      "version": "0.30.23.60470",
+      "templateHash": "8493107720929555144"
     }
   },
   "parameters": {
@@ -125,7 +125,7 @@
         "displayName": "Deploy Azure Monitor Baseline Alerts for Recovery Services",
         "description": "This initiative deploys Azure Monitor Baseline Alerts to monitor Recovery Services such as Azure Backup, and Azure Site Recovery.",
         "metadata": {
-          "version": "1.1.0",
+          "version": "1.2.0",
           "category": "Monitoring",
           "source": "https://github.com/Azure/azure-monitor-baseline-alerts/",
           "alzCloudEnvironments": [
