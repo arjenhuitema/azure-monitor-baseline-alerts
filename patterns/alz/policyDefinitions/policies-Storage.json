@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.30.23.60470",
-      "templateHash": "11303601411165319510"
+      "templateHash": "3191722516773673119"
     }
   },
   "parameters": {
@@ -125,7 +125,7 @@
         "displayName": "Deploy Azure Monitor Baseline Alerts for Storage",
         "description": "This initiative deploys Azure Monitor Baseline Alerts to monitor Storage Services such as Storage accounts.",
         "metadata": {
-          "version": "1.1.0",
+          "version": "1.2.0",
           "category": "Monitoring",
           "source": "https://github.com/Azure/azure-monitor-baseline-alerts/",
           "alzCloudEnvironments": [

@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.30.23.60470",
-      "templateHash": "10835276681278327642"
+      "templateHash": "13062346165552591322"
     }
   },
   "parameters": {
@@ -131,7 +131,7 @@
         "displayName": "Deploy Azure Monitor Baseline Alerts for Key Management",
         "description": "This initiative deploys Azure Monitor Baseline Alerts to monitor Key Management Services such as Azure Key Vault, and Managed HSM.",
         "metadata": {
-          "version": "1.1.0",
+          "version": "1.2.0",
           "category": "Monitoring",
           "source": "https://github.com/Azure/azure-monitor-baseline-alerts/",
           "alzCloudEnvironments": [
@@ -921,7 +921,7 @@
         "displayName": "Deploy Azure Monitor Baseline Alerts for Identity",
         "description": "Initiative to deploy AMBA alerts relevant to the ALZ Identity management group",
         "metadata": {
-          "version": "1.2.0",
+          "version": "1.3.0",
           "category": "Monitoring",
           "source": "https://github.com/Azure/azure-monitor-baseline-alerts/",
           "alzCloudEnvironments": [
